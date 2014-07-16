@@ -7,9 +7,28 @@
 
 ## Usage
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+Storing your sensitive data in the keychain can take up a lot of time and effort. It should be easy to just drop something in there and retrive it with a few simple lines of code. DDDKeychainWrapper offers this simplicity and here is how we do it: 
 
-## Requirements
+```objective-c
+	// Writing to the Keychain
+	[DDDKeychainWrapper setString:@"Secret string" forKey:@"my_key"];
+    
+    // Reading from the Keychain
+    NSString *secretString = [DDDKeychainWrapper stringForKey:@"my_key"];
+```
+
+DDDKeychainWrapper has support for the following types
+
+* NSString
+* NSDate
+* NSData
+* NSArray
+* NSDictionary
+* NSNumber
+* BOOL
+* Objects (Must confirm to NSCoding)
+
+A method for wiping the keychain data inserted via the wrapper exists as well.
 
 ## Installation
 

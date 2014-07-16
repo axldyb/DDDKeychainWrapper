@@ -1,28 +1,12 @@
-#
-# Be sure to run `pod lib lint DDDKeychainWrapper.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# Any lines starting with a # are optional, but encouraged
-#
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = "DDDKeychainWrapper"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of DDDKeychainWrapper."
-  s.description      = <<-DESC
-                       An optional longer description of DDDKeychainWrapper
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/DDDKeychainWrapper"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.version          = "1.0.0"
+  s.summary          = "DDDKeychainWrapper offers a simple access to store and retrive your sensitive data from the Keychain."
+  s.homepage         = "https://github.com/axldyb/DDDKeychainWrapper"
   s.license          = 'MIT'
   s.author           = { "axldyb" => "aksel.dybdal@shortcut.no" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/DDDKeychainWrapper.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/axldyb/DDDKeychainWrapper.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/axldyb'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
@@ -30,7 +14,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Pod/Classes'
   s.resources = 'Pod/Assets/*.png'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'Security'
 end

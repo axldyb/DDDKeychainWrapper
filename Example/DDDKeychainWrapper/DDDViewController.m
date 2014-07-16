@@ -7,6 +7,7 @@
 //
 
 #import "DDDViewController.h"
+#import <DDDKeychainWrapper/DDDKeychainWrapper.h>
 
 @interface DDDViewController ()
 
@@ -17,13 +18,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	
+    [DDDKeychainWrapper setString:@"Test string" forKey:@"my_key"];
+    
+    NSString *testString = [DDDKeychainWrapper stringForKey:@"my_key"];
+    
+    NSLog(@"The test string: %@", testString);
 }
 
 @end
