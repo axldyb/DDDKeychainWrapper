@@ -1,0 +1,9 @@
+target 'DDDKeychainWrapper', :exclusive => true do
+  pod "DDDKeychainWrapper", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "DDDKeychainWrapper", :path => "../"
+
+  pod 'Kiwi'
+end
