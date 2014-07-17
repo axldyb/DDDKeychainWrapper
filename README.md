@@ -42,6 +42,6 @@ it, simply add the following line to your Podfile:
 axldyb, aksel.dybdal@shortcut.no
 
 ## License
-
+© 2014 Aksel Dybdal
 DDDKeychainWrapper is available under the MIT license. See the LICENSE file for more info.
 
