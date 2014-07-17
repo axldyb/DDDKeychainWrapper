@@ -2,4 +2,4 @@ reference: http://www.objc.io/issue-6/travis-ci.html
 language: objective-c
 cache: bundler
 script:
-- xctool test -workspace Example/DDDKeychainWrapper.xcworkspace -scheme DDDKeychainWrapper -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+- xctool test -workspace Example/DDDKeychainWrapper.xcworkspace -scheme DDDKeychainWrapper -sdk iphonesimulator7.1 ONLY_ACTIVE_ARCH=NO
