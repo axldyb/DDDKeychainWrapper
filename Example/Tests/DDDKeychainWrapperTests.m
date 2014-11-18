@@ -94,6 +94,12 @@
     XCTAssert(result ==  testBool, @"Bool does not match");
 }
 
+- (void)test_bool_missing
+{
+    BOOL result = [DDDKeychainWrapper booleanForKey:@"some_key"];
+    XCTAssert(result == NO, @"Bool does not match");
+}
+
 - (void)test_object
 {
     NSString *testKey = @"test_key";
