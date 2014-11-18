@@ -8,6 +8,7 @@
 
 #import "DDDKeychainWrapper.h"
 #import <Security/Security.h>
+#import "TargetConditionals.h"
 
 typedef NS_ENUM(NSUInteger, DDDKeychainWrapperErrorCode) {
     DDDKeychainWrapperErrorCreatingKeychainValue = 1,
@@ -18,13 +19,6 @@ typedef NS_ENUM(NSUInteger, DDDKeychainWrapperErrorCode) {
 
 NSString *const kDDDKeychainWrapperServiceName = @"com.dddkeychainwrapper.keychainService";
 NSString *const kDDDKeychainWrapperErrorDomain = @"DDDKeychainWrapperErrorDomain";
-
-#ifdef DEBUG
-#    warning "Including NSLog"
-#    define DDDLOG(s, ...)  NSLog(s, ## __VA_ARGS__)
-#else
-#    define DDDLOG(s, ...)  while(0){}
-#endif
 
 @implementation DDDKeychainWrapper
 
@@ -303,6 +297,9 @@ NSString *const kDDDKeychainWrapperErrorDomain = @"DDDKeychainWrapperErrorDomain
 {
     NSString *errorString = @"";
     
+    
+    
+    
     switch (status) {
         case errSecUnimplemented:
             errorString = @"Function or operation not implemented.";
@@ -311,11 +308,17 @@ NSString *const kDDDKeychainWrapperErrorDomain = @"DDDKeychainWrapperErrorDomain
         case errSecIO:
             errorString = @"I/O error (bummers)";
             break;
-            
+        
+        #if TARGET_IPHONE_SIMULATOR
         case errSecOpWr:
             errorString = @"File already open with write permission";
             break;
-            
+        #elif TARGET_OS_IPHONE
+        case errSecOpWr:
+            errorString = @"File already open with write permission";
+            break;
+        #endif
+
         case errSecParam:
             errorString = @"One or more parameters passed to a function where not valid.";
             break;

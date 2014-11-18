@@ -121,7 +121,12 @@
     [DDDKeychainWrapper wipeKeychain];
     
     NSString *result = [DDDKeychainWrapper stringForKey:testKey];
-    XCTAssert(NO == [result isEqualToString:testString], @"Wipe keychain failed");
+
+    // Dispatch_async is needed on OSX because to give wipe time to work
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        XCTAssert(NO == [result isEqualToString:testString], @"Wipe keychain failed");
+    });
+
 }
 
 @end
