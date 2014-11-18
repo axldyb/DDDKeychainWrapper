@@ -20,13 +20,6 @@ typedef NS_ENUM(NSUInteger, DDDKeychainWrapperErrorCode) {
 NSString *const kDDDKeychainWrapperServiceName = @"com.dddkeychainwrapper.keychainService";
 NSString *const kDDDKeychainWrapperErrorDomain = @"DDDKeychainWrapperErrorDomain";
 
-#ifdef DEBUG
-#    warning "Including NSLog"
-#    define DDDLOG(s, ...)  NSLog(s, ## __VA_ARGS__)
-#else
-#    define DDDLOG(s, ...)  while(0){}
-#endif
-
 @implementation DDDKeychainWrapper
 
 
